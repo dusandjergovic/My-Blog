@@ -1,37 +1,28 @@
-/* Glavni kontejner */
-body, html {
-    /* overflow: hidden;  Ovo će potpuno onemogućiti skrolovanje */
-}
-
 .container_full {
     width: 100%;
-    /* height: 100vh; Ceo ekran */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Pozicioniranje sadržaja od vrha */
-    align-items: center;  /* Centriranje sadržaja horizontalno */
-    padding: 2rem; /* Razmak od ivica */
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
     box-sizing: border-box;
-    background-color: lightgray; /* Gradijent pozadine */
-    /* overflow: hidden; */
+    background-color: lightgray;
 }
 
-/* Stilizovanje naslova iznad kartica */
 .container_full h1 {
+    text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 2rem; /* Razmak ispod naslova */
+    margin-bottom: 2rem;
 }
 
-/* Flexbox za kartice */
 .card-group {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;  /* Da bi kartice prelazile u novi red na manjim ekranima */
-    gap: 1rem; /* Razmak između kartica */
+    flex-wrap: wrap;
+    gap: 1rem;
     padding: 0;
 }
 
-/* Stil za pojedinačnu karticu */
 .card {
     text-align: center;
     border-radius: 0.5rem;
@@ -42,14 +33,13 @@ body, html {
     padding: 15px;
     width: 300px;
     background-color: #fff;
-    border: 1px solid transparent;  /* Transparentan border da ne bi bilo ivica */
-    min-height: 350px; /* Garantuje minimalnu visinu kartica */
+    border: 1px solid transparent;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Da sadržaj unutar kartice bude ravnomerno raspoređen */
+    justify-content: space-between;
 }
 
-/* Hover efekat na karticu */
 .card:hover {
     transform: scale(1.05);
     background-color: #1e1bf7;
@@ -57,39 +47,33 @@ body, html {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Efekat na sliku unutar kartice */
 .card img {
     transition: transform 0.3s ease, filter 0.3s ease;
-    max-width: 100%; /* Slika zauzima maksimalnu širinu kartice */
-    height: auto; /* Automatski podešava visinu slike prema širini */
-    border-radius: 50%; /* Zaokružena slika */
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
 }
 
-/* Hover efekat za sliku */
 .card:hover img {
-    transform: scale(1.1); /* Skaliranje slike na hover */
-    filter: brightness(80%); /* Smanjuje svetlost slike na hover */
+    transform: scale(1.1);
+    filter: brightness(80%);
 }
 
-/* Stilizovanje naslova unutar kartice */
 .card-body h5 {
     font-weight: 850;
     font-size: 1.2rem;
     margin: 1rem 0;
 }
 
-/* Uklanjanje text-decoration za linkove */
 a {
     text-decoration: none !important;
-    color: inherit; /* Link preuzima boju od roditeljskog elementa */
+    color: inherit;
 }
 
-/* Hover efekat za linkove */
 a:hover {
-    color: #fff; /* Menja boju teksta kada je link u hoveru */
+    color: #fff;
 }
 
-/* Dodavanje pozadine na hover kada kartica nije u fokusu */
 .card:hover a {
-    color: #fff; /* Menja boju linka u beli na hover */
+    color: #fff;
 }

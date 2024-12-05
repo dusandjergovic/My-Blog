@@ -2,81 +2,31 @@
     margin: 0;
     padding: 0;
 }
+
 .container_one {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     background: linear-gradient(to right, #1e1bf7, #190685);
-    height: 50vh;
     width: 100%;
     box-sizing: border-box;
     padding: 1rem 3rem 0 3rem;
 }
 
-/* Responzivno smanjenje margina i paddinga na manjim ekranima */
-@media (max-width: 768px) {
-    .container_one {
-        padding: 1rem 2rem 0 2rem; /* Smanjivanje paddinga na manjim ekranima */
-    }
-
-    .img-name {
-        margin-left: 0; /* Uklanjamo marginu sa leve strane */
-        justify-content: center; /* Centriramo sliku i tekst */
-        gap: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .img-name img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .container_two {
-        width: 90%; /* Smanjujemo širinu kontejnera */
-        margin: 20px auto;
-        padding: 15px;
-    }
-
-    .card-group {
-        flex-direction: column; /* Prebacujemo kartice u vertikalni raspored */
-        align-items: center; /* Centriramo kartice */
-    }
-
-    .card {
-        width: 90%; /* Smanjujemo širinu kartica */
-        margin-bottom: 1rem; /* Dodajemo razmak između kartica */
-    }
-}
-
-@media (max-width: 480px) {
-    .container_one {
-        padding: 1rem; /* Smanjujemo padding još više za mobilne uređaje */
-    }
-
-    .img-name h1 {
-        font-size: 1.5rem; /* Smanjujemo font za h1 */
-    }
-
-    .container_two {
-        width: 100%; /* Širina kontejnera postaje 100% */
-        margin: 15px 0;
-        padding: 10px;
-    }
-
-    .card {
-        width: 100%; /* Kartice zauzimaju celu širinu */
-    }
-
-    .card-group {
-        flex-direction: column; /* Kartice su u vertikalnom rasporedu */
-    }
-}
-
 .img-name {
     display: flex;
+    justify-content: start;
     align-items: center;
     gap: 1rem;
-    margin-left: 10rem;
+    margin-top: 3rem;
+}
+
+.img-name img {
+    width: 130px;
+    height: 130px;
+    border-radius: 1rem;
+    transform: rotate(-5deg);
+    outline: 5px solid #d870ff;
 }
 
 .img-name h1 {
@@ -88,55 +38,117 @@
     color: white;
 }
 
-.img-name img {
-    width: 130px;
-    height: 130px;
-    border-radius: 1rem;
-    transform: rotate(-5deg);
-    outline: 5px solid #d870ff;
-}
-/* Stilizacija za container_two */
-.container_two {
-    margin: auto;
-    /* width: 60%; */
-    background-color: #fff;  /* Bela pozadina */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);  /* Crna senka sa ivica */
-    padding: 30px 0;  /* Dodajemo padding da bi imali razmak sa ivicama */
-    /* margin-top: 70px; */
-    text-align: center; /* Centriranje naslova */
-    border-radius: 1.5rem;
+@media (max-width: 768px) {
+    .container_one {
+        padding: 1rem 2rem 0 2rem;
+    }
+
+    .img-name {
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .img-name img {
+        width: 100px;
+        height: 100px;
+    }
+
+    #about {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .container_two {
+        width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .card-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        margin-bottom: 1rem;
+    }
 }
 
-/* Stilizacija wrappera za kartice (Flexbox raspored) */
+@media (max-width: 480px) {
+    .container_one {
+        padding: 1rem;
+    }
+
+    .img-name {
+        justify-content: center;
+    }
+
+    .img-name img {
+        margin-top: -1rem;
+    }
+
+    .img-name h1{
+        display: none;
+    }
+
+    #about {
+        margin: 0;
+        text-align: center;
+    }
+
+    .container_two {
+        width: 100%;
+        margin: 15px 0;
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .card-group {
+        flex-direction: column;
+    }
+}
+
+.container_two {
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 30px 0;
+    text-align: center;
+    border-radius: 1.5rem;
+    margin-bottom: 2rem;
+}
+
 .card-wrapper {
     display: flex;
-    flex-wrap: wrap;  /*Omogućava karticama da prelaze u sledeći red*/
-    justify-content: center;  /* Centriranje kartica */
-    gap: 20px;  /* Razmak između kartica */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     padding: 20px;
 }
 
-/* Stilizacija kartice */
 .card {
     height: 250px;
-    text-decoration: none;  /* Uklanjamo podvlačenje linka */
-    width: 280px;  /* Širina kartice */
-    border: 1px solid #ddd;  /* Siva ivica kartice */
-    border-radius: 1.5rem;  /* Zaobljene ivice kartice */
-    background-color: #fff;  /* Bela pozadina kartice */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Senka kartice */
-    overflow: hidden;  /* Skrivamo delove koji izlaze iz okvira */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;  /* Efekti pri hover-u */
+    text-decoration: none;
+    width: 280px;
+    border: 1px solid #ddd;
+    border-radius: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);  /* Kartica se podiže pri hover-u */
-    box-shadow: 0px 6px 16px rgba(0, 0, 255, 0.3);  /* Senka pri hover-u u plavoj boji */
-    background-color: #1e1bf7;  /* Plava pozadina kartice pri hover-u */
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 16px rgba(0, 0, 255, 0.3);
+    background-color: #1e1bf7;
     color: white;
 }
 
-/* Unutrašnji sadržaj kartice */
 .card-content {
     display: flex;
     flex-direction: column;
@@ -162,24 +174,20 @@
     flex-grow: 1;
 }
 
-/* Slika kartice */
 .card-img {
     width: 100px;
     height: 150px;
     object-fit: cover;
-    border-radius: 50%;  /* Zaobljene ivice slike */
-    /* margin: 20px auto;  Centriranje slike */
+    border-radius: 50%;
 }
 
-/* Zaokruživanje i stilizacija naslova i tekstova */
 .card-title, .card-text {
     text-align: center;
 }
 
-/* Responsive dizajn za manje ekrane */
 @media (max-width: 768px) {
     .card {
-        width: 100%;  /* Kartice zauzimaju celu širinu na manjim ekranima */
-        max-width: 300px;  /* Maksimalna širina */
+        width: 100%;
+        max-width: 300px;
     }
 }
