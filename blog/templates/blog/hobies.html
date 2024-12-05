@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static "blog/hobies.css" %}">
+{% endblock  %}
+
+{% block content %}
+
+    <section>
+        <div class="first">
+                <div>
+                    <h1>{{post.title}}</h1>
+                    {% for tag in tags%}
+                    <span class="tag">{{tag.caption}}</span>
+                    {% endfor %}
+                </div>  
+
+                <div id="read-later">
+                    <form method="POST" action="{% url "read-later" %}">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ post.id }}" name="post_id">
+                        <button>
+                            {% if saved_for_later %}
+                                Remove from "Read Later" list
+                            {% else %}
+                                Read Later
+                            {% endif %}
+                        </button>
+                    </form>
+                </div>
+
+                <div class="img-date">
+                    <img src="{{ post.image.url }}" alt="">
+                    <address>
+                        <a href="mailto:test@test.com">By {{post.author}}</a>
+                    </address>
+                    <p>Last updated 
+                        <span id="time">{{post.date|date:"d M Y"}}</span>
+                    </p>
+                </div>
+
+        </div>
+
+        <div class="second">
+            <p>{{post.content|linebreaks}}</p>
+        </div>
+
+        <div id="comments">
+            <ul>
+                {% for comment in comments %}
+                    <li>
+                        <h2> {{ comment.user_name }} </h2>
+                        <p> {{ comment.text|linebreaks }} </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div id="comment-form">
+            <h2>Your Comment</h2>
+            <form method="POST" action="{% url "hobi" post.slug %}">
+                {% csrf_token %}
+                {% for form_field in comment_form %}
+                    <div class="form-control">
+                        {{form_field.label_tag}}
+                        {{form_field}}
+                        {{form_field.errors}}
+                    </div>
+                {% endfor %}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+{% endblock  %}

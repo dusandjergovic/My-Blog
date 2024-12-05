@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock  %}
+
+{% block content %}
+  <div class="container_one">
+    
+         <div class="img-name">
+            <img src="{% static "blog/images/maradona.jpg" %}" alt="">
+            <h1>Exploring Life and Ideas</h1>
+         </div>
+         <p id='about'>Hi, I am Dusan and I love to blog about tech and the world!</p>
+
+      <div class="container_two">
+        <h2 class="text-center mb-4">My Latest Thoughts</h2>
+        <div class="card-wrapper">
+            {% for post in posts %}
+                <a href="{% url 'hobi' slug=post.slug %}" class="card">
+                    <div class="card-content">
+                        <img src="{{ post.image.url }}" class="card-img" alt="{{ post.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title|title }}</h5>
+                            <p class="card-text">{{ post.excerpt }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+      </div>
+
+  </div>
+      
+{% endblock  %}

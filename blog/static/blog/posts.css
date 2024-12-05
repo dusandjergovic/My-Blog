@@ -1,0 +1,79 @@
+.container_full {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: lightgray;
+}
+
+.container_full h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.card-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+}
+
+.card {
+    text-align: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.5s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    padding: 15px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #1e1bf7;
+    color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+    filter: brightness(80%);
+}
+
+.card-body h5 {
+    font-weight: 850;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.card:hover a {
+    color: #fff;
+}

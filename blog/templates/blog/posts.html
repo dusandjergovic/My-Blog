@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static "blog/posts.css" %}">
+{% endblock  %}
+
+{% block content %}
+
+<div class="container_full">
+    
+    <h1>My Latest Thoughts</h1>
+
+    
+    <div class="card-group">
+        {% for post in posts %}
+        <a href="{% url "hobi" slug=post.slug %}">
+              <div class="card">
+                  <img src="{{ post.image.url }}" class="card-img-top rounded-circle mx-auto" alt="..." style="width: 100px; height: 100px;">
+                  <div class="card-body">
+                      <h5 class="card-title">{{ post.title|title }}</h5>
+                      <p class="card-text">{{ post.excerpt }}</p>
+                  </div>
+                </div>
+        </a>        
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock  %}
