@@ -1,11 +1,14 @@
 # Use official Python image as base
 FROM python:3.10-slim
 
+RUN apt-get update && apt-get install -y libpq-dev gcc
+
 # Set working directory inside the container
 WORKDIR /app
 
 # Copy the requirements file into the container
 COPY requirements.txt /app/
+
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
